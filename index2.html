@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    userName<input type="text" id="username"><br>
+    <button onclick="login()">Login</button><br>
+    favorite color<input type="text" id="favorite_color"><br>
+    <button onclick="saveColor()">save favorite color</button>
+    <div id="display"></div>
+    <script>
+        function login() {
+            localStorage.setItem('user', username.value)
+        }
+
+        function saveColor() {
+            localStorage.setItem('color', favorite_color.value)
+        }
+
+        function displayUser_and_color() {
+            let curUser = localStorage.getItem('user')
+            let colorUser = localStorage.getItem('color')
+            display.innerHTML = `Hello ${curUser}, your favorite color is <span style="color: ${colorUser};">${colorUser}</span>.`
+        }
+
+        // Display the user or color on page load
+        displayUser_and_color()
+    </script>
+
+</body>
+
+</html>
