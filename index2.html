@@ -16,8 +16,15 @@
     <div id="display"></div>
     <script>
         function login() {
-            localStorage.setItem('user', username.value)
+            const username = document.getElementById('username').value;
+
+            if (username.length >= 4 && username.length <= 8) {
+                localStorage.setItem('user', username);
+            } else {
+                alert('Username must be between 4 and 8 characters');
+            }
         }
+
 
         function saveColor() {
             localStorage.setItem('color', favorite_color.value)
